@@ -57,12 +57,12 @@
         <div class="overlay"></div>
         <!-- #END# Overlay For Sidebars -->
         <!-- Search Bar -->
-        <form action="/search" method="POST">
+        <form action="/question/search" method="POST">
             <div class="search-bar">
                 <div class="search-icon">
                     <i class="material-icons">search</i>
                 </div>
-                <input type="text" name="keyword" placeholder="SEARCH QUESTION...">
+                <input type="text" name="keyword" placeholder="SEARCH QUESTION..." required="true">
                 <input type="submit" id="submit-search"> 
 
                 <div class="close-search">
@@ -107,10 +107,10 @@
                             </a>
                             <ul class="ml-menu">
                                 <li>
-                                    <a href="/listQuestion">Question list</a>
+                                    <a href="/question">Question list</a>
                                 </li>
                                 <li>
-                                    <a href="/createQuestion">Create question</a>
+                                    <a href="/question/create">Create question</a>
                                 </li>
                             </ul>
                         </li>
@@ -120,7 +120,7 @@
                             </a>
                             <ul class="ml-menu">
                                 <li>
-                                    <a href="listTest">Test list</a>
+                                    <a href="/test">Test list</a>
                                 </li>
                                 <li>
                                     <a href="createTest">Create test</a>
@@ -153,7 +153,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="body">
-                            <form:form action="/createTest" method="POST" modelAttribute="test" class="form-horizontal">
+                            <form:form action="/test/create" method="POST" modelAttribute="test" class="form-horizontal">
                                 <c:if test="${type=='update'}">
                                     <form:hidden path="testId" />
                                 </c:if>
@@ -164,7 +164,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <form:input path="testName" id="test_name" class="form-control"/>
+                                                <form:input path="testName" id="test_name" class="form-control" required="true"/>
                                             </div>
                                         </div>
                                     </div>
@@ -176,7 +176,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <form:textarea path="description" rows="4" class="form-control no-resize" row="4" />
+                                                <form:textarea path="description" rows="4" class="form-control no-resize" row="4" required="true" />
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +225,7 @@
                                     <div class="col-lg-3 col-md-3 col-sm-2 col-xs-1">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <form:password path="password" id="password" class="form-control"/>
+                                                <form:password path="password" id="password" class="form-control" required="true" />
                                             </div>
                                         </div>
                                     </div>
@@ -233,7 +233,7 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                         <button type="submit" class="btn btn-success m-t-15 w-90 waves-effect">Save</button>
-                                        <a href="/listTest"><type type="button" class="btn btn-warning m-t-15 w-90 waves-effect">Cancel</button></a>
+                                        <a href="/test"><type type="button" class="btn btn-warning m-t-15 w-90 waves-effect">Cancel</button></a>
                                     </div>
                                 </div>
                             </form:form>

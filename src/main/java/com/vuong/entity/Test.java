@@ -7,6 +7,7 @@ package com.vuong.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,7 +35,7 @@ public class Test {
     @JoinColumn(name = "testTypeId")
     private TestType testType;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "test_question",
             joinColumns = @JoinColumn(name = "testId"),
             inverseJoinColumns = @JoinColumn(name = "questionId"))

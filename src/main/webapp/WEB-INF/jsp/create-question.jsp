@@ -56,12 +56,12 @@
         <div class="overlay"></div>
         <!-- #END# Overlay For Sidebars -->
         <!-- Search Bar -->
-        <form action="/search" method="POST">
+        <form action="/question/search" method="POST">
             <div class="search-bar">
                 <div class="search-icon">
                     <i class="material-icons">search</i>
                 </div>
-                <input type="text" name="keyword" placeholder="SEARCH QUESTION...">
+                <input type="text" name="keyword" placeholder="SEARCH QUESTION..." required="true">
                 <input type="submit" id="submit-search"> 
 
                 <div class="close-search">
@@ -106,10 +106,10 @@
                             </a>
                             <ul class="ml-menu">
                                 <li>
-                                    <a href="/listQuestion">Question list</a>
+                                    <a href="/question">Question list</a>
                                 </li>
                                 <li>
-                                    <a href="/createQuestion">Create question</a>
+                                    <a href="/question/create">Create question</a>
                                 </li>
                             </ul>
                         </li>
@@ -119,10 +119,10 @@
                             </a>
                             <ul class="ml-menu">
                                 <li>
-                                    <a href="/listTest">Test list</a>
+                                    <a href="/test">Test list</a>
                                 </li>
                                 <li>
-                                    <a href="/createTest">Create test</a>
+                                    <a href="/test/create">Create test</a>
                                 </li>
                             </ul>
                         </li>
@@ -152,7 +152,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="body">
-                            <form:form action="/listQuestion" method="POST" modelAttribute="question" class="form-horizontal">
+                            <form:form action="/question/create" method="POST" modelAttribute="question" class="form-horizontal">
 
                                 <mvc:if test="${type=='update'}">
                                     <form:hidden path="questionId"/>
@@ -164,7 +164,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <form:textarea path="content" class="form-control no-resize"/>
+                                                <form:textarea path="content" class="form-control no-resize"  required="true" />
                                             </div>
                                         </div>
                                     </div>
@@ -176,7 +176,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <form:input path="crtAns" id="answer" class="form-control" maxlength="100"/>
+                                                <form:input path="crtAns" id="answer" class="form-control" maxlength="100"  required="true" />
                                             </div>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <form:input path="ans1" id="answer_1" class="form-control" maxlength="100"/>
+                                                <form:input path="ans1" id="answer_1" class="form-control" maxlength="100" required="true" />
                                             </div>
                                         </div>
                                     </div>
@@ -200,7 +200,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <form:input path="ans2" id="answer_2" class="form-control" maxlength="100"/>
+                                                <form:input path="ans2" id="answer_2" class="form-control" maxlength="100" required="true"/>
                                             </div>
                                         </div>
                                     </div>
@@ -212,7 +212,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <form:input path="ans3" id="answer_3" class="form-control" maxlength="100"/>
+                                                <form:input path="ans3" id="answer_3" class="form-control" maxlength="100" required="true"/>
                                             </div>
                                         </div>
                                     </div>

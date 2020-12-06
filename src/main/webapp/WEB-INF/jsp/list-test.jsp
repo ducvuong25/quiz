@@ -57,12 +57,12 @@
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
     <!-- Search Bar -->
-    <form action="/search" method="POST">
+    <form action="/question/search" method="POST">
         <div class="search-bar">
             <div class="search-icon">
                 <i class="material-icons">search</i>
             </div>
-            <input type="text" name="keyword" placeholder="SEARCH QUESTION...">
+            <input type="text" name="keyword" placeholder="SEARCH QUESTION..." required="true">
             <input type="submit" id="submit-search"> 
 
             <div class="close-search">
@@ -107,10 +107,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/listQuestion">Question list</a>
+                                <a href="/question">Question list</a>
                             </li>
                             <li>
-                                <a href="/createQuestion">Create question</a>
+                                <a href="/question/create">Create question</a>
                             </li>
                         </ul>
                     </li>
@@ -120,10 +120,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="/listTest">Test list</a>
+                                <a href="/test">Test list</a>
                             </li>
                             <li>
-                                <a href="/createTest">Create test</a>
+                                <a href="/test/create">Create test</a>
                             </li>
                         </ul>
                     </li>
@@ -154,7 +154,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <a href="/createTest" class="btn btn-success waves-effect">Create test</a>
+                            <a href="/test/create" class="btn btn-success waves-effect">Create test</a>
                         </div>
                         <div class="body table-responsive">
                             <table class="table table-bordered table-striped">
@@ -179,9 +179,9 @@
                                             <td>${t.description}</td>
                                             <td>${t.testType.testTypeID}</td>
                                             <td>
-                                                <a href="/delete/test/${t.testId}" class="btn btn-danger btn-delete"><i class="material-icons">delete</i></a>
-                                                <a href="/edit/test/${t.testId}" class="btn btn-info"><i class="material-icons font-16">edit</i></a>
-                                                <a href="/inputQuestion/${t.testId}" class="btn btn-success">Create question</a>
+                                                <a href="/test/delete/${t.testId}" class="btn btn-danger btn-delete"><i class="material-icons">delete</i></a>
+                                                <a href="/test/edit/${t.testId}" class="btn btn-info"><i class="material-icons font-16">edit</i></a>
+                                                <a href="/test/addQuestion/${t.testId}" class="btn btn-success">Create question</a>
                                             </td>
                                         </tr>
                                     </mvc:forEach>

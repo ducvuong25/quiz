@@ -7,7 +7,6 @@ package com.vuong.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,8 +31,7 @@ public class Question {
     private String ans2;
     private String ans3;
     private String crtAns;
-
-    @ManyToMany(mappedBy = "questions", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToMany(mappedBy = "questions")
     private List<Test> tests = new ArrayList<>();
 
     public Question() {

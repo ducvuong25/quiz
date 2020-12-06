@@ -53,12 +53,12 @@
         <div class="overlay"></div>
         <!-- #END# Overlay For Sidebars -->
         <!-- Search Bar -->
-        <form action="/search" method="POST">
+        <form action="/question/search" method="POST">
             <div class="search-bar">
                 <div class="search-icon">
                     <i class="material-icons">search</i>
                 </div>
-                <input type="text" name="keyword" placeholder="SEARCH QUESTION...">
+                <input type="text" name="keyword" placeholder="SEARCH QUESTION..."required="true">
                 <input type="submit" id="submit-search"> 
 
                 <div class="close-search">
@@ -103,10 +103,10 @@
                             </a>
                             <ul class="ml-menu">
                                 <li>
-                                    <a href="/listQuestion">Question list</a>
+                                    <a href="/question">Question list</a>
                                 </li>
                                 <li>
-                                    <a href="/createQuestion">Create question</a>
+                                    <a href="/question/create">Create question</a>
                                 </li>
                             </ul>
                         </li>
@@ -116,10 +116,10 @@
                             </a>
                             <ul class="ml-menu">
                                 <li>
-                                    <a href="/listTest">Test list</a>
+                                    <a href="/test">Test list</a>
                                 </li>
                                 <li>
-                                    <a href="/createTest">Create test</a>
+                                    <a href="/test/create">Create test</a>
                                 </li>
                             </ul>
                         </li>

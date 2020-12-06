@@ -39,7 +39,6 @@ public interface WebService {
 
     void addquestionToTest(int TestID, int[] questionId);
 
-    // lam viec voi testtype
     List<TestType> getAllTestType();
 
     List<Question> searchQuestion(String keyword);
