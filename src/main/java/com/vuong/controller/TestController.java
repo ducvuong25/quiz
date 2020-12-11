@@ -25,8 +25,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(path = "/test")
 public class TestController {
 
-    
-    
     @Autowired
     private WebService webService;
 
@@ -45,13 +43,6 @@ public class TestController {
         return "create-test";
     }
 
-    // khi click vao nut save trom question form (add or update)
-    @RequestMapping(path = "/create", method = RequestMethod.POST)
-    public String saveTest(@ModelAttribute Test test) {
-        webService.addTest(test);
-        return "redirect:/test";
-    }
-
     // khi click vao button edit
     @RequestMapping(path = "/edit/{testId}", method = RequestMethod.GET)
     public String editTest(@PathVariable int testId, Model model) {
@@ -59,6 +50,13 @@ public class TestController {
         model.addAttribute("testTypes", getTestTypeMap());
         model.addAttribute("type", "update");
         return "create-test";
+    }
+
+    // khi click vao nut save trom question form (add or edit)
+    @RequestMapping(path = "/create", method = RequestMethod.POST)
+    public String saveTest(@ModelAttribute Test test) {
+        webService.addTest(test);
+        return "redirect:/test";
     }
 
     // khi click vao button delete
