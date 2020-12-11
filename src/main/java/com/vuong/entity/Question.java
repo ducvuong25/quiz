@@ -101,9 +101,7 @@ public class Question {
         return selected;
     }
 
-//    public void removeTest(Test test) {
-//        test.getQuestions().remove(this);
-//    }
+
     public void removeTest(Test test) {
         tests.remove(test);
         test.getQuestions().remove(this);

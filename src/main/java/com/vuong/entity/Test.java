@@ -35,7 +35,7 @@ public class Test {
     @JoinColumn(name = "testTypeId")
     private TestType testType;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany
     @JoinTable(name = "test_question",
             joinColumns = @JoinColumn(name = "testId"),
             inverseJoinColumns = @JoinColumn(name = "questionId"))

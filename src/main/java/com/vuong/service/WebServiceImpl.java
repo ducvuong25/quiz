@@ -26,7 +26,7 @@ public class WebServiceImpl implements WebService {
     @Override
     @PostConstruct
     public void initData() {
-        // tao 2 TestType đẻ vào database để hiển thị lên dropdown JSP
+        // tao 3 TestType đẻ vào database để hiển thị lên dropdown JSP
 
         TestType mathTest = new TestType();
         mathTest.setTestTypeID("Math");
@@ -44,8 +44,7 @@ public class WebServiceImpl implements WebService {
         testTypeRepository.save(iTTest);
         testTypeRepository.save(engTest);
 
-        
-          // tao 4 question
+        // tao 4 question
         Question q1 = new Question();
         q1.setContent("The first letter of the first word in a sentence should be");
         q1.setAns1("a large letter");
@@ -73,7 +72,13 @@ public class WebServiceImpl implements WebService {
         q4.setAns2(" a plural verb");
         q4.setAns3("a countable verb");
         q4.setCrtAns("a countable verb");
-        
+
+        // luu 4 question va database
+        questionRepository.save(q1);
+        questionRepository.save(q2);
+        questionRepository.save(q3);
+        questionRepository.save(q4);
+
         //tao 1 test
         Test test = new Test();
         test.setTestName("English for kid");
@@ -82,14 +87,9 @@ public class WebServiceImpl implements WebService {
         test.setTestTime(30);
         test.setPassword("vuongcute");
         test.setTestType(engTest);
-        test.getQuestions().add(q1);
-        test.getQuestions().add(q2);
-        test.getQuestions().add(q3);
-        test.getQuestions().add(q4);
-        
-        // luu test do vao
+
+        // luu 1 test vao database
         addTest(test);
-        
 
     }
 

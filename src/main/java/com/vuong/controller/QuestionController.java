@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -37,35 +37,32 @@ public class QuestionController {
         return "create-question";
     }
 
-    // khi click vao nut save trong form question (add)
-    @RequestMapping(path = "/create", method = RequestMethod.POST)
-    public String saveQuestion(@ModelAttribute Question question, Model model) {
-        webService.addQuestion(question);
-        return "redirect:/question";
-    }
-    
-    // khi click vao nut save trong form (edit)
- @RequestMapping(path = "/edit/{questionId}", method = RequestMethod.GET)
+    // khi click vao nut edit
+    @RequestMapping(path = "/edit/{questionId}", method = RequestMethod.GET)
     public String editQuestion(@PathVariable int questionId, Model model) {
         model.addAttribute("question", webService.getQuestionById(questionId));
         model.addAttribute("type", "update");
         return "create-question";
     }
 
-   
+// khi an nut save (edit hoac add)
+    @RequestMapping(path = "/create", method = RequestMethod.POST)
+    public String saveQuestion(@ModelAttribute Question question, Model model) {
+        webService.addQuestion(question);
+        return "redirect:/question";
+    }
+
     @RequestMapping(path = "/delete/{questionId}", method = RequestMethod.GET)
     public String deleteQuestion(@PathVariable int questionId) {
         webService.removeQuestion(questionId);
         return "redirect:/question";
     }
 
-   
     // tim kiem theo ten question o moi trang man hinh
     @RequestMapping(path = "/search", method = RequestMethod.POST)
     public String search(@RequestParam String keyword, Model model) {
         model.addAttribute("questions", webService.searchQuestion(keyword));
         return "list-question";
     }
-
 
 }
