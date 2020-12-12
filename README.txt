@@ -3,6 +3,7 @@
 - Apache netbean 12
 - Mysql version: 8.0.22 (Thầy nhớ đổi userName vs pass datasources phù hợp với thầy)
 - Bật tomcat trước khi run project để tránh bị lỗi
+- clean and build trước khi run để không bị trùng dữ liệu
 
 
 Một số chú ý trong trong cách làm của em và:
