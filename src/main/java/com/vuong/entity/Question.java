@@ -101,7 +101,7 @@ public class Question {
         return selected;
     }
 
-
+    //method nay dung de remove hoan toan bai mot cau hoi tu 2 phia (bidirection)
     public void removeTest(Test test) {
         tests.remove(test);
         test.getQuestions().remove(this);

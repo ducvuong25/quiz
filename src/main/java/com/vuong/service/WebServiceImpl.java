@@ -93,32 +93,7 @@ public class WebServiceImpl implements WebService {
 
     }
 
-    @Override
-    public void addQuestion(Question question) {
-        questionRepository.save(question);
-
-    }
-
-    @Override
-    public List<Question> getAllQuestion() {
-        return (List<Question>) questionRepository.findAll();
-    }
-
-    @Override
-    @Transactional
-    public void removeQuestion(int questionId) {
-        Question question = questionRepository.findById(questionId).orElse(null);
-        for (Test test : new ArrayList<>(question.getTests())) {
-            question.removeTest(test);
-        }
-        questionRepository.delete(question);
-    }
-
-    @Override
-    public Question getQuestionById(int questionId) {
-        return questionRepository.findById(questionId).get();
-    }
-
+//    work with Test
     @Override
     public Test getTestById(int testId) {
         return testRepository.findById(testId).get();
@@ -150,11 +125,40 @@ public class WebServiceImpl implements WebService {
         Test test = getTestById(TestID);
         // lay toan bo question duoc check
         List<Question> questions = GetQuestionsById(questionId);
-        // tu bo list quetion cu va them list question duoc chọn
+        // drop list question cu va thay the bang list question duoc check
         test.setQuestions(questions);
 
         // Luu vao database
         testRepository.save(test);
+    }
+
+    //work with question
+    @Override
+    public void addQuestion(Question question) {
+        questionRepository.save(question);
+
+    }
+
+    @Override
+    public List<Question> getAllQuestion() {
+        return (List<Question>) questionRepository.findAll();
+    }
+
+    @Override
+    @Transactional
+    public void removeQuestion(int questionId) {
+        //neu question do da nam trong mot bai test roi, thi phai remove tu 2 phia
+        Question question = questionRepository.findById(questionId).orElse(null);
+        for (Test test : new ArrayList<>(question.getTests())) {
+            question.removeTest(test);
+        }
+        //sau khi xoa cac moi lien ket, tien hanh xoa question
+        questionRepository.delete(question);
+    }
+
+    @Override
+    public Question getQuestionById(int questionId) {
+        return questionRepository.findById(questionId).get();
     }
 
     @Override
