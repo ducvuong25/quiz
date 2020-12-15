@@ -1,6 +1,7 @@
 # Yêu cầu hệ thống
 - Apache netbean 12
 - Mysql version: 8.0.22
+- JDK 8 hoặc cao hơn
 # Một số chý ý
 - Để deploy project lên được tomcat server thì cần phải đổi tôi phải war thành ROOT.war, chi tiêt xem thêm tại [đây](https://www.baeldung.com/tomcat-root-application).
 - ``Application Context`` được thiệt lập = "".
